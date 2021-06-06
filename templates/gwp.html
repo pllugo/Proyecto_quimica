@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="data" method="POST" enctype="multipart/form-data">
+    <div class="container">
+        <div class="card rounded-0">
+            <div class="card-body bg-light">
+                <div class="row">
+                    <h6 class="font-weight-bold mb-0">Datos del COV</h6>
+                    <label for="inputPassword4" class="form-label">Ingresar el archivo FTIR del COV</label>
+                    <input type="file" name="csvfile" value="">
+                    <div class="col-md-4">
+                        <label for="inputPassword4" class="form-label">Abreviatura del COV</label>
+                        <input type="text" name = 'abreviatura' class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="inputPassword4" class="form-label">Concentración del COV (molecule/cm3)</label>
+                        <input type="text" name = 'concentracion' class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="inputPassword4" class="form-label">Paso óptico (cm)</label>
+                        <input type="text" name = 'paso_optico' class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="inputPassword4" class="form-label">Peso Molecular (g/mol)</label>
+                        <input type="text" name = 'peso_molecular' class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="inputPassword4" class="form-label">k_OH del COV (cm3/molecule.s)</label>
+                        <input type="text" name = 'koh_cov' class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="inputPassword4" class="form-label">k_Cl del COV (cm3/molecule.s)</label>
+                        <input type="text" name = 'kcl_cov' class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="inputPassword4" class="form-label">k_O3 del COV (cm3/molecule.s)</label>
+                        <input type="text" name = 'ko3_cov' class="form-control">
+                    </div>
+                    <p></p>
+                    <div class="col-12">
+                        <input type="submit" class="btn btn-primary" name="" value="Calcular">
+                    </div>
+                    
+                </div>
+                
+            </div>
+
+        </div>
+
+    </div>
+    
+</form>
+{% endblock %}

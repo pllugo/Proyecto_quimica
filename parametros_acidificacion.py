@@ -129,6 +129,8 @@ def delete_compuesto(compuestos):
 
 
 create_schema()
+#La lista a ingresar funciona como referencia
+#para comparar el COV con el AP del grupo ingresado
 group = [('SO2', 1.0),
              ('NO', 1.07),
              ('NO2', 0.7),

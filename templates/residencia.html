@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form class="row g-3" action="/residencia_t" method="POST">
+
+  <section>
+    <div id="content">
+        <section class="py-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9">
+                        <h1>tiempo de residencia atmosférico (t[x])</h1>
+                        <p class="lead text-muted">t=1/(k_cov*[x]) (Atkinson et al., 1997)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+                    <div class="container">
+                        <div class="card rounded-0">
+                          <div class="card-body bg-light">
+                            <h6 class="font-weight-bold mb-0">Radicales</h6>
+                            <p></p>
+                            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+      
+                              <input type="checkbox" value="OH" autocomplete="off" name="radicales">
+                              <label class="btn btn-outline-primary" for="btncheck1">OH*</label>
+                            
+                              <input type="checkbox" value="Cl" autocomplete="off" name="radicales">
+                              <label class="btn btn-outline-primary" for="btncheck2">Cl*</label>
+                            
+                              <input type="checkbox" value="NO3" autocomplete="off" name="radicales">
+                              <label class="btn btn-outline-primary" for="btncheck3">NO3*</label>
+      
+                              <input type="checkbox" value="O3" autocomplete="off" name="radicales">
+                              <label class="btn btn-outline-primary" for="btncheck3">O3*</label>
+
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <label for="inputPassword4" class="form-label">COV</label>
+                            <input type="text" name = 'compuesto' class="form-control" value="{{ abreviatura }}">
+                          </div>
+                          <div class="col-md-4">
+                            <label for="inputPassword4" class="form-label">k del COV (cm3/molecule.s)</label>
+                            <input type="text" name = 'k_cov' class="form-control">
+                          </div>
+                          <p></p>
+                          <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Calcular</button>
+                        </div>
+                        </div>
+                      </div>
+                      <p></p>
+                      <table class="table table-bordered border-primary">
+                        <thead>
+                          <tr>
+                            <th scope="col">COVs</th>
+                            <th scope="col">Tiempo de residencia Troposférico (t=1/(k_cov*[x])) (h)</th>
+                            <th scope="col">Radical ([x])</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>{{ compuesto_cov }}</td>
+                            <td>{{ tiempo }}</td>
+                            <td>{{ radical }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+
+</form>
+
+{% endblock %}

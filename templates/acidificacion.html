@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section>
+  <div class="container">
+      <div class="card rounded-0">
+          <div class="card-body">
+              <div class="row">
+                <h1>Potencial de Acidificación</h1>
+                <p class="lead text-muted">AP = PMcov/PMCO2*(nF+nCl+nN+2*nS)/2 (de Leeuw, 1993)</p>
+                  <form class="row g-3" action="/potencial_ap" method="POST">
+                    <div class="col-md-4">
+                      <label for="inputPassword4" class="form-label">Peso Molecular(g/mol)</label>
+                      <input type="text" name = 'peso_molecular' class="form-control" value="{{ peso_molecular_cov }}">
+                    </div>
+                    <div class="col-md-4">
+                      <label for="inputPassword4" class="form-label">COV</label>
+                      <input type="text" name = 'compuesto' class="form-control" value="{{ abreviatura_cov }}">
+                    </div>
+                    <p></p>
+                    <h1>Cantidad de Halógenos en la Molécula</h1>
+                    <div class="col-md-2">
+                      <label for="inputCity" class="form-label">Cloro (Cl)</label>
+                      <input type="text" name = 'cloro' class="form-control">
+                    </div>
+                    <div class="col-md-2">
+                      <label for="inputZip" class="form-label">Flúor (F)</label>
+                      <input type="text" name = 'fluor' class="form-control">
+                    </div>
+                    <div class="col-md-2">
+                      <label for="inputZip" class="form-label">Nitrógeno (N)</label>
+                      <input type="text" name = 'nitrogeno' class="form-control">
+                    </div>
+                    <div class="col-md-2">
+                      <label for="inputZip" class="form-label">Azufre (S)</label>
+                      <input type="text" name = 'azufre' class="form-control">
+                    </div>
+                    <div class="col-12">
+                      <button type="submit" class="btn btn-primary">Calcular</button>
+                    </div>
+                    <p></p>
+                    <h6 class="text-muted">Resultados</h6>
+                    <table class="table table-bordered border-primary">
+                      <thead>
+                        <tr>
+                          <th scope="col">COVs</th>
+                          <th scope="col">Potencial de Acidificación (AP)</th>
+                          <th scope="col">Potencial de Acidificación Referencia (AP)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>{{ abreviatura }}</td>
+                          <td>{{ ap }}</td>
+                          <td>{{ lista }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+{% endblock %}

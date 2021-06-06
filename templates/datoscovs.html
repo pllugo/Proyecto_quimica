@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form class="row g-3" action="/datos" method="POST">
+  <div id="content">
+    <section class="py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <h1>Datos para ingresar a la base de datos</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+  <section>
+    <div class="container">
+        <div class="card rounded-0">
+            <div class="card-body">
+                <div class="row">
+                  <div class="col-md-4">
+                    <label for="inputPassword4" class="form-label">Formula</label>
+                    <input type="text" name = 'formula' class="form-control">
+                  </div>
+  
+                  <div class="col-md-4">
+                    <label for="inputPassword4" class="form-label">Nombre del COV</label>
+                    <input type="text" name = 'nombre' class="form-control">
+                  </div>
+  
+                  <div class="col-md-4">
+                    <label for="inputPassword4" class="form-label">Abreviatura del COV</label>
+                    <input type="text" name = 'abreviatura' class="form-control">
+                  </div>
+  
+                  <div class="col-md-4">
+                    <label for="inputPassword4" class="form-label">Peso Molecular(g/mol)</label>
+                    <input type="text" name = 'peso_molecular' class="form-control">
+                  </div>
+                  <div class="col-md-4">
+                    <label for="inputPassword4" class="form-label">Densidad(g/mL)</label>
+                    <input type="text" name = 'densidad' class="form-control">
+                  </div>
+                  <p></p>
+                  <div class="container">
+                    <div class="card rounded-0">
+                      <div class="card-body bg-light">
+                        <h6 class="font-weight-bold mb-0">Sustituyentes</h6>
+                        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+  
+                          <input type="checkbox" value="Fluorado" autocomplete="off" name="sustituyente">
+                          <label class="btn btn-outline-primary" for="btncheck1">Fluorado</label>
+                        
+                          <input type="checkbox" autocomplete="off" value="Clorado" name="sustituyente">
+                          <label class="btn btn-outline-primary" for="btncheck2">Clorado</label>
+                        
+                          <input type="checkbox" autocomplete="off" value="Nitrogenado" name="sustituyente">
+                          <label class="btn btn-outline-primary" for="btncheck3">Nitrogenado</label>
+  
+                          <input type="checkbox" autocomplete="off" value="Azufrado" name="sustituyente">
+                          <label class="btn btn-outline-primary" for="btncheck3">Azufrado</label>
+  
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <p></p>
+                  <div class="container">
+                    <div class="card rounded-0">
+                      <div class="card-body bg-light">
+                        <h6 class="font-weight-bold mb-0">Tipo de Hidrocarburo</h6>
+                        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                          <input type="checkbox" autocomplete="off" value="Saturado" name="enlace">
+                          <label class="btn btn-outline-primary" for="btncheck1">Saturado</label>
+                        
+                          <input type="checkbox" autocomplete="off" value="Insaturado" name="enlace">
+                          <label class="btn btn-outline-primary" for="btncheck2">Insaturado</label>
+                        
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <p></p>
+                  <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Ingresar</button>
+                  </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+</form>
+{% endblock %}

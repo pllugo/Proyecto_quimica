@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form class="row g-3" action="/potencial_pocp" method="POST">
+  <div id="content">
+    <section class="py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <h1>Potencial de Creación de Ozono Troposferico</h1>
+                    <p class="lead text-muted">POCP=(AxYsxRxSxF) + P + RO3 - Q (Jenkin et al, 2017)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+  <section>
+    <div class="container">
+        <div class="card rounded-0">
+            <div class="card-body">
+                <div class="row">
+                  <div class="col-md-4">
+                      <div class="col-md-4">
+                        <label for="inputPassword4" class="form-label">Abreviatura del COV</label>
+                        <input type="text" name = 'abreviatura' class="form-control" value="{{ abreviatura }}">
+                      </div>
+                        <label for="inputPassword4" class="form-label">Peso Molecular(g/mol)</label>
+                        <input type="text" name = 'peso_molecular' class="form-control" value="{{ peso_molecular_cov }}">
+                      </div>
+    
+                      <div class="col-md-4">
+                        <label for="inputPassword4" class="form-label">Numero de enlaces</label>
+                        <input type="text" name = 'enlaces' class="form-control">
+                      </div>
+    
+                      <div class="col-md-4">
+                        <label for="inputPassword4" class="form-label">Numero de carbonos</label>
+                        <input type="text" name = 'carbonos' class="form-control">
+                      </div>
+    
+                      <div class="col-md-4">
+                        <label for="inputPassword4" class="form-label">kOH del COV</label>
+                        <input type="text" name = 'koh_cov' class="form-control">
+                      </div>
+                      <div class="col-md-4">
+                        <label for="inputPassword4" class="form-label">kOH_producto (>2E12 cm3/molecule.s)</label>
+                        <input type="text" name = 'koh_producto' class="form-control">
+                      </div>
+
+                      <div class="col-md-4">
+                        <label for="inputPassword4" class="form-label">kO3 del COV</label>
+                        <input type="text" name = 'ko3_cov' class="form-control">
+                      </div>
+                      <div class="col-md-4">
+                        <label for="inputPassword4" class="form-label">Rendimiento</label>
+                        <input type="text" name = 'rendimiento' class="form-control">
+                      </div>
+                      <p></p>
+                    <div class="container">
+                      <div class="card rounded-0">
+                        <div class="card-body bg-light">
+                          <h6 class="font-weight-bold mb-0">Multiplicador A</h6>
+                          <p></p>
+                          <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+    
+                            <input type="checkbox" value="alifaticos" autocomplete="off" name="multiplicador_a">
+                            <label class="btn btn-outline-primary" for="btncheck1">alifaticos</label>
+                          
+                            <input type="checkbox" autocomplete="off" value="aromaticos con 0 sustituyentes alquilos" name="multiplicador_a">
+                            <label class="btn btn-outline-primary" for="btncheck2">aromaticos con 0 sustituyentes alquilos</label>
+                          
+                            <input type="checkbox" autocomplete="off" value="aromaticos con 1 sustituyentes alquilos" name="multiplicador_a">
+                            <label class="btn btn-outline-primary" for="btncheck3">aromaticos con 1 sustituyentes alquilos</label>
+    
+                            <input type="checkbox" autocomplete="off" value="aromaticos con 2 sustituyentes alquilos" name="multiplicador_a">
+                            <label class="btn btn-outline-primary" for="btncheck3">aromaticos con 2 sustituyentes alquilos</label>
+    
+                            <input type="checkbox" autocomplete="off" value="aromaticos con 3 sustituyentes alquilos" name="multiplicador_a">
+                            <label class="btn btn-outline-primary" for="btncheck3">aromaticos con 3 sustituyentes alquilos</label>
+    
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+    
+                    <p></p>
+                    <div class="container">
+                      <div class="card rounded-0">
+                        <div class="card-body bg-light">
+                          <h6 class="font-weight-bold mb-0">Dato para P</h6>
+                          <p></p>
+                          <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                            <input type="checkbox" autocomplete="off" value="aldehidos y cetonas" name="dato_p">
+                            <label class="btn btn-outline-primary" for="btncheck1">aldehidos y cetonas</label>
+                          
+                            <input type="checkbox" autocomplete="off" value="alfa-dicarbonilos" name="dato_p">
+                            <label class="btn btn-outline-primary" for="btncheck2">alfa-dicarbonilos</label>
+                          
+                            <input type="checkbox" autocomplete="off" value="ciclocetonas" name="dato_p">
+                            <label class="btn btn-outline-primary" for="btncheck3">ciclocetonas</label>
+
+                            <input type="checkbox" autocomplete="off" value="N/A" name="dato_p">
+                            <label class="btn btn-outline-primary" for="btncheck3">N/A</label>
+    
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <p></p>
+                    <div class="container">
+                      <div class="card rounded-0">
+                        <div class="card-body bg-light">
+                          <h6 class="font-weight-bold mb-0">Dato para RO3</h6>
+                          <p></p>
+                          <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                            <input type="checkbox" autocomplete="off" value="alquenos y oxigenados insaturados" name="dato_ro3">
+                            <label class="btn btn-outline-primary" for="btncheck1">alquenos y oxigenados insaturados</label>
+                          
+                            <input type="checkbox" autocomplete="off" value="N/A" name="dato_ro3">
+                            <label class="btn btn-outline-primary" for="btncheck2">N/A</label>
+                          
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <p></p>
+                    <div class="container">
+                      <div class="card rounded-0">
+                        <div class="card-body bg-light">
+                          <h6 class="font-weight-bold mb-0">COV Aromático</h6>
+                          <p></p>
+                          <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                            <input type="checkbox" autocomplete="off" value="benzaldehidos y estirenos" name="dato_q">
+                            <label class="btn btn-outline-primary" for="btncheck1">benzaldehidos y estirenos</label>
+                          
+                            <input type="checkbox" autocomplete="off" value="hidroxiarenos" name="dato_q">
+                            <label class="btn btn-outline-primary" for="btncheck2">hidroxiarenos</label>
+
+                            <input type="checkbox" autocomplete="off" value="N/A" name="dato_q">
+                            <label class="btn btn-outline-primary" for="btncheck3">N/A</label>
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <p></p>
+                    <div class="container">
+                      <div class="card rounded-0">
+                        <div class="card-body bg-light">
+                          <h6 class="font-weight-bold mb-0">Región</h6>
+                          <p></p>
+                          <div class="btn-group" aria-label="Basic checkbox toggle button group">
+                            <input type="checkbox" autocomplete="off" value="usa" name="region">
+                            <label class="btn btn-outline-primary" for="btncheck1">USA</label>
+                          
+                            <input type="checkbox" autocomplete="off" value="europa" name="region">
+                            <label class="btn btn-outline-primary" for="btncheck2">Europa</label>
+    
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <p></p>
+                  <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Calcular</button>
+                  </div>
+                  <p></p>
+                  <h6 class="text-muted">Resultados</h6>
+                    <table class="table table-bordered border-primary">
+                      <thead>
+                        <tr>
+                          <th scope="col">COVs</th>
+                          <th scope="col">Potencial de Creación de Ozono Troposférico (POCP)</th>
+                          <th scope="col">Potencial de Creación de Ozono Troposférico Referencia POCP (Eteno)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>{{ abreviatura }}</td>
+                          <td>{{ pocp }}</td>
+                          <td>100</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+</form>
+
+{% endblock %}
